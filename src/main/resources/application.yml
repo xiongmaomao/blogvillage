@@ -1,2 +1,31 @@
 server:
   port: 8085
+#thymeleaƒ£∞Â≈‰÷√
+spring:
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    mode: HTML5
+    encoding: UTF-8
+    cache: false
+  resources:
+    chain:
+      strategy:
+        content:
+          enabled: true
+          paths: /**
+  datasource:
+    url: jdbc:mysql://47.105.177.123:3306/blogvillage?useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: Xz13125168081@
+
+# ≈‰÷√mybatis-plus
+mybatis-plus:
+  # ≈‰÷√…®√Ëxml
+  mapper-locations: classpath:mapper/*.xml
+  #  µÃÂ…®√Ë£¨∂‡∏ˆpackage”√∂∫∫≈ªÚ’ﬂ∑÷∫≈∑÷∏Ù
+  type-aliases-package: com.bear.blogvillage.*.po
+  global-config:
+    # ¬ﬂº≠…æ≥˝≈‰÷√
+    logic-delete-value: 0
+    logic-not-delete-value: 1
