@@ -9,6 +9,6 @@ public class TestController {
     public String test(){
         String s = "aaa";
         System.out.println("测试一下");
-        return "hello xionghahaha";
+        return "hello xxx";
     }
 }
