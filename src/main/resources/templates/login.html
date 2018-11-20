@@ -2,37 +2,64 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
     <title>登录</title>
     <script type="text/javascript" th:src="@{/js/jquery-1.12.4.js}"></script>
     <script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
-    <link type="text/css" th:href="@{/css/icons.css}" rel="stylesheet" />
-    <link type="text/css" th:href="@{/css/bootstrap.css}" rel="stylesheet" />
-
-    <style>
-        body {
-            background-color: #f9f9f9;
-        }
-
-        .login {
-            border: 1px solid #cccccc;
-            border-radius: 10px;
-            width: 500px;
-            height: 300px;
-            margin: 10% auto;
-            text-align: center;
-        }
-    </style>
+    <link type="text/css" th:href="@{/css/icons.css}" rel="stylesheet"/>
+    <!--<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">-->
+    <link type="text/css" th:href="@{/css/bootstrap.css}" rel="stylesheet"/>
+    <link type="text/css" th:href="@{/css/style.css}" rel="stylesheet"/>
+    <script type="text/javascript" th:src="@{/js/login/login.js}"></script>
 </head>
 <body>
+<div class="wrapper-page">
 
+    <div class="card">
+        <div class="card-body">
+            <div class=" container">
+                <div class="text-center mt-0 m-b-15">
+                    <img th:src="@{/image/logo.jpg}" class="img-responsive m-t-10" width="50px" height="50px">
+                </div>
+                <form>
+                    <div class="d-flex flex-row justify-content-center">
+                        <div class="align-self-center">
+                            <i class="fa fa-user-o fa-2x fa-fw"></i>
+                        </div>
+                        <div class="p-2 w-l">
+                            <input class="form-control" type="text" name="username" placeholder="请输入用户名" required>
+                        </div>
+                        <div class="align-self-center">
+                            <a href="#" onclick="registerUser()">立即注册</a>
+                        </div>
 
-    <div class="loginbg"></div>
-    <div class="login container" >
-        <img th:src="@{/image/logo.jpg}" width="50px" height="50px" style="margin-top: 10px">
-        <button class="btn btn-primary btn-miw-s" type="submit">登   录</button>
+                    </div>
+                    <div class="d-flex flex-row justify-content-center">
+                        <div class="align-self-center">
+                            <i class="fa fa-lock fa-2x fa-fw"></i>
+                        </div>
+                        <div class="p-2 w-l">
+                            <input class="form-control" type="password" name="username" placeholder="请输入密码" required>
+                        </div>
+                        <div class="align-self-center">
+                            <a href="#">忘记密码</a>
+                        </div>
+                    </div>
+
+                    <div class="text-center mt-0 m-b-15">
+                        <button class="btn btn-primary m-t-20 " type="submit" name="username" style="width: 65%">登录</button>
+                    </div>
+                    <div class="text-center mt-0 m-b-15">
+                    <label >
+                        <input type="checkbox"> 自动登录
+                    </label>
+                    </div>
+                    </form>
+            </div>
+        </div>
     </div>
-
+</div>
 
 
 </body>
