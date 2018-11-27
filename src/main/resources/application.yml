@@ -1,6 +1,5 @@
 server:
   port: 8085
-#thymelea模板配置
 spring:
   thymeleaf:
     prefix: classpath:/templates/
@@ -18,14 +17,15 @@ spring:
     url: jdbc:mysql://47.105.177.123:3306/blogvillage?useUnicode=true&characterEncoding=utf-8
     username: root
     password: Xz13125168081@
+  servlet:
+    multipart:
+      max-file-size: 100
+      max-request-size: 1024
 
-# 配置mybatis-plus
+
 mybatis-plus:
-  # 配置扫描xml
   mapper-locations: classpath:mapper/*.xml
-  # 实体扫描，多个package用逗号或者分号分隔
   type-aliases-package: com.bear.blogvillage.*.po
   global-config:
-    # 逻辑删除配置
     logic-delete-value: 0
     logic-not-delete-value: 1
