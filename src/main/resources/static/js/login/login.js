@@ -1,3 +1,3 @@
 function registerUser() {
-    alert("----");
+    $("#registModal").modal("show");
 }
