@@ -2,11 +2,13 @@ package com.bear.blogvillage.user.controller;
 
 import com.bear.blogvillage.exception.UserNotFoundException;
 import com.bear.blogvillage.user.po.User;
+import com.bear.blogvillage.user.service.UserService;
 import com.fasterxml.jackson.annotation.JsonView;
 import com.github.tomakehurst.wiremock.client.WireMock;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.apache.http.impl.conn.Wire;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
@@ -21,6 +23,8 @@ import java.util.stream.Stream;
 @RequestMapping("/user")
 public class UserController {
 
+    @Autowired
+    private UserService userService;
 
     @GetMapping("/login")
     public String login(){
@@ -29,8 +33,9 @@ public class UserController {
 
     @RequestMapping("/register")
     @ResponseBody
-    public String register(){
-        return "恭喜发财，四季如意！！！";
+    public String register(User user){
+        userService.insert(user);
+        return "";
     }
 
     @GetMapping("/{id}")

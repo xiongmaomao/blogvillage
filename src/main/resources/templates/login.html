@@ -62,7 +62,7 @@
 
 
 <!-- 注册模态框 -->
-<div class="modal fade" id="register">
+<div class="modal fade" id="register" data-backdrop="static" data-keyboard="false">
     <div class="modal-dialog">
         <div class="modal-content">
 
@@ -74,40 +74,32 @@
 
             <!-- 模态框主体 -->
                 <div class="modal-body" >
-                    <form method="POST" action="/user/register"  >
+                    <form method="POST" action="/user/register"  id="loginForm">
                         <div class="form-group row  "  >
-                            <label for="userAccount"  class="col-2" style="margin-top: 4px"><i class="fa fa-user-circle fa-2x fa-fw" ></i></label>
+                            <label for="account"  class="col-2" style="margin-top: 4px"><i class="fa fa-user-circle fa-2x fa-fw" ></i></label>
                             <div class="col-10">
-                                <input type="text" class="form-control englishOnly" id="userAccount" name="account" placeholder="请输入用户账号" minlength="2" maxlength="20" required>
+                                <input type="text" class="form-control " id="account" name="account" placeholder="请输入用户账号"  >
                                 <sapn id="accountMsg" style="color: #f00" ></sapn>
                             </div>
                         </div>
-
                         <div class="form-group row " >
-                            <label for="userMobile" class="col-2" style="margin-top: 4px"><li class="fa fa-mobile-phone fa-2x fa-fw"></li></label>
+                            <label for="password" class="col-2" style="margin-top: 4px"><li class="fa fa-lock fa-2x fa-fw"></li></label>
                             <div class="col-10">
-                                <input type="text" class="form-control "  id="userMobile" name="userMobile" placeholder="请输入手机号" minlength="11" maxlength="11" digits= "true"  required>
-                                <sapn id="mobiMsg" style="color: #f00;"></sapn>
-                            </div>
-                        </div>
-                        <div class="form-group row " >
-                            <label for="userPassword" class="col-2" style="margin-top: 4px"><li class="fa fa-lock fa-2x fa-fw"></li></label>
-                            <div class="col-10">
-                                <input type="text" class="form-control "  id="userPassword" name="password" placeholder="请输入密码" minlength="11" maxlength="6" required>
+                                <input type="password" class="form-control "  id="password" name="password" placeholder="请输入密码"  >
                                 <sapn id="mobiMsg" style="color: #f00;"></sapn>
                             </div>
                         </div>
                         <div class="form-group row " >
                             <label for="confirmPassword" class="col-2" style="margin-top: 4px"><li class="fa fa-lock fa-2x fa-fw"></li></label>
                             <div class="col-10">
-                                <input type="text" class="form-control "  id="confirmPassword" name="confirmPassword" placeholder="请确认密码" minlength="6"  required>
+                                <input type="password" class="form-control equalTo:'#password'"  id="confirmPassword" name="confirmPassword" placeholder="请确认密码"    >
                                 <sapn id="mobiMsg" style="color: #f00;"></sapn>
                             </div>
                         </div>
                         <div class="form-group row " >
                             <label for="userEmail" class="col-2" style="margin-top: 4px"><li class="fa fa-envelope-open fa-2x fa-fw"></li></label>
                             <div class="col-10">
-                                <input type="text" class="form-control "  id="userEmail" name="userEmail" placeholder="请输入邮箱" minlength="11" maxlength="11" digits= "true"  required>
+                                <input type="text" class="form-control email"  id="userEmail" name="email" placeholder="请输入邮箱"    >
                                 <sapn id="mobiMsg" style="color: #f00;"></sapn>
                             </div>
                         </div>
@@ -123,11 +115,59 @@
     </div>
 </div>
 
-<script>
+
+
+<script type="text/javascript">
     $(function () {
-        alert("============");
+        $("#login-btn").click(function () {
+            var validator = $("#loginForm").validate({
+                rules: {
+                    "account": {
+                        "required": true,
+                        "minlength": 3
+                    },
+                    "password": {
+                        "required": true,
+                        "minlength": 6
+                    },
+                    "confirmPassword": {
+                        "required": true,
+                        "minlength": 6,
+                        "equalTo":"#password"
+                    },
+                    "email": {
+                        "required": true,
+                        "email": true
+                    },
+                },
+                messages: {
+                    "account": {
+                        "required": "请输入登录名",
+                        "minlength": "登录名最小3个字符"
+                    },
+                    "password": {
+                        "required": "请输入密码",
+                        "minlength": "密码最小6个字符"
+                    },
+                    "confirmPassword": {
+                        "required": "请输入确认密码",
+                        "minlength": "登录名最小6个字符",
+                        "equalTo":"两次输入的密码不一致",
+                    },
+                    "email": {
+                        "required": "请输入邮箱",
+                        "email": "请输入正确的邮箱"
+                    },
+                }
+            });
+
+            $("#login-btn").click(function () {
+                $("#loginForm").validate().form();
+            });
+        })
     })
 </script>
+
 
 </body>
 </html>
