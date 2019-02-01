@@ -138,7 +138,6 @@
             </plugin>
 
         </plugins>
-
         <finalName>blogvillage</finalName>
     </build>
 

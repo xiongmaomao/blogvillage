@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Bean;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @SpringBootApplication
-@MapperScan({" com.bear.blogvillage.*.dao"})
+@MapperScan({"com.bear.blogvillage.*.dao","com.bear.blogvillage.*.*.dao"})
 public class BlogvillageApplication {
 
     public static void main(String[] args) {

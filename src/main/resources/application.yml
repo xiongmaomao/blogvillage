@@ -17,6 +17,7 @@ spring:
     url: jdbc:mysql://47.105.177.123:3306/blogvillage?useUnicode=true&characterEncoding=utf-8
     username: root
     password: Xz13125168081@
+    driver-class-name: com.mysql.jdbc.Driver
   servlet:
     multipart:
       max-file-size: 100
@@ -24,8 +25,10 @@ spring:
 
 
 mybatis:
-  mapper-locations: classpath:mapping/*.xml
+  mapper-locations: classpath*:mapping/*.xml
   type-aliases-package: com.bear.blogvillage.*.po
   global-config:
     logic-delete-value: 0
     logic-not-delete-value: 1
+
+

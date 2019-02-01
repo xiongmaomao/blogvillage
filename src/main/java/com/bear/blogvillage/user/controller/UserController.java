@@ -19,7 +19,6 @@ import javax.validation.Valid;
 import java.util.stream.Stream;
 
 @Controller
-@Api(value = "用户服务信息查询",description = "HelloWorldController信息")
 @RequestMapping("/user")
 public class UserController {
 
