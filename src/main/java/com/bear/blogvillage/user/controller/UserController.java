@@ -33,7 +33,7 @@ public class UserController {
     @RequestMapping("/register")
     @ResponseBody
     public String register(User user){
-        userService.insert(user);
+         userService.insert(user);
         return "";
     }
 

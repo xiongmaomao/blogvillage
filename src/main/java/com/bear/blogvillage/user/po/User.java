@@ -1,8 +1,5 @@
 package com.bear.blogvillage.user.po;
 
-import com.bear.blogvillage.validate.MyAnno;
-
-import javax.validation.constraints.NotBlank;
 import java.util.Date;
 
 public class User {
@@ -12,7 +9,6 @@ public class User {
 
     private String account;
 
-    @NotBlank(message = "密吗不能为空")
     private String password;
 
     private String code;
